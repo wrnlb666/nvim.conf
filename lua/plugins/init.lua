@@ -32,6 +32,7 @@ return {
                 "typescript-language-server",
                 "stylua",
     			"html-lsp",
+                "htmx-lsp",
                 "css-lsp",
                 "ols",
                 "rust-analyzer",
