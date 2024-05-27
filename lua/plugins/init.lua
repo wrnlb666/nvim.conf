@@ -52,6 +52,7 @@ return {
                 "make",
                 "python",
                 "go",
+                "proto",
                 "markdown",
                 "cpp",
                 "c_sharp",
