@@ -35,6 +35,7 @@ return {
                 "htmx-lsp",
                 "css-lsp",
                 "ols",
+                "jdtls",
                 "rust-analyzer",
     		},
     	},
