@@ -10,7 +10,6 @@ local servers = {
     "bufls",
     "pyright",
     "zls",
-    "omnisharp",
     "rust_analyzer",
     "kotlin_language_server",
     "jdtls",
@@ -61,6 +60,15 @@ lspconfig.templ.setup{
         "templ",
         "lsp",
     },
+}
+
+-- omnisharp
+lspconfig.omnisharp.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = {
+        "omnisharp",
+    }
 }
 
 -- htmx
