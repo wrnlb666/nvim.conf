@@ -14,6 +14,8 @@ local servers = {
     "kotlin_language_server",
     "jdtls",
     "ols",
+    "texlab",
+    "sqls",
 }
 
 -- lsps with default config
