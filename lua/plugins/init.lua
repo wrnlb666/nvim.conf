@@ -22,6 +22,8 @@ return {
     		ensure_installed = {
                 "clangd",
                 "gopls",
+                "golangci_lint",
+                "golangci_lint_ls",
                 "pyright",
                 "templ",
                 "buf-language-server",
