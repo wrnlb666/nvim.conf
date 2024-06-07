@@ -9,7 +9,6 @@ local servers = {
     "cssls",
     "bufls",
     "pyright",
-    "golangci_lint_ls",
     "zls",
     "rust_analyzer",
     "kotlin_language_server",
