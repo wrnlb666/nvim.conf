@@ -71,6 +71,7 @@ return {
                 "odin",
                 "rust",
                 "kotlin",
+                "jsdoc",
                 "javascript",
                 "typescript",
     		},
