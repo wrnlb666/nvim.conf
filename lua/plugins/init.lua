@@ -1,4 +1,13 @@
 return {
+    -- my plugin start
+    {
+        'Exafunction/codeium.vim',
+        event = 'BufEnter'
+    },
+
+    -- my plugin stop
+
+
     {
         "stevearc/conform.nvim",
         -- event = 'BufWritePre', -- uncomment for format on save
