@@ -2,7 +2,21 @@ return {
     -- my plugin start
     {
         'Exafunction/codeium.vim',
-        event = 'BufEnter'
+        event = 'BufEnter',
+        config = function()
+            -- change default accept key to `ctrl+z`
+            vim.keymap.set(
+                'i',
+                '<C-z>',
+                function()
+                    return vim.fn['codeium#Accept']()
+                end,
+                {
+                    expr = true,
+                    silent = true
+                }
+            )
+        end,
     },
 
     -- my plugin stop
