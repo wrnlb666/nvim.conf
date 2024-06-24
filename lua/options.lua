@@ -38,26 +38,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 
--- Swapping 'za' with 'zA'
-vim.api.nvim_set_keymap('n', 'za', 'zA', {noremap = true})
--- vim.api.nvim_set_keymap('n', 'zA', 'za', {noremap = true})
-
--- -- Swapping 'zr' with 'zR'
--- vim.api.nvim_set_keymap('n', 'zr', 'zR', {noremap = true})
--- vim.api.nvim_set_keymap('n', 'zR', 'zr', {noremap = true})
---
--- -- Swapping 'zm' with 'zM'
--- vim.api.nvim_set_keymap('n', 'zm', 'zM', {noremap = true})
--- vim.api.nvim_set_keymap('n', 'zM', 'zm', {noremap = true})
-
-
--- git branches
-vim.api.nvim_set_keymap('n', '<leader>co', '<cmd>Telescope git_branches<CR>', {noremap = true, silent = true})
-
--- D to delete
-vim.api.nvim_set_keymap('v', 'D', '"_d', {noremap = true})
-
-
 -- nvim tree automatic behavior
 vim.api.nvim_exec([[
   autocmd StdinReadPre * let s:std_in=1
@@ -76,8 +56,6 @@ vim.api.nvim_exec([[
 
 -- line break
 vim.wo.linebreak = true
-vim.api.nvim_set_keymap('n', 'j', 'gj', {noremap = true})
-vim.api.nvim_set_keymap('n', 'k', 'gk', {noremap = true})
 
 
 -- add `.templ` file extension
