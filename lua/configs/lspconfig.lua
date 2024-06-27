@@ -5,17 +5,19 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local lspconfig = require "lspconfig"
 local servers = {
-    "html",
-    "cssls",
+    "gopls",
+    "templ",
     "bufls",
     "pyright",
+    "omnisharp",
+    "gdscript",
     "zls",
-    "rust_analyzer",
-    "kotlin_language_server",
-    "jdtls",
-    "ols",
+    "htmx",
     "texlab",
     "sqls",
+    "tsserver",
+    "html",
+    "cssls",
 }
 
 -- lsps with default config
@@ -48,43 +50,3 @@ lspconfig.clangd.setup {
     },
 }
 
--- gopls
-lspconfig.gopls.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-}
-
--- go/templ
-lspconfig.templ.setup{
-    on_attach = on_attach,
-    capabilities = capabilities,
-    cmd = {
-        "templ",
-        "lsp",
-    },
-}
-
--- omnisharp
-lspconfig.omnisharp.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    cmd = {
-        "omnisharp",
-    }
-}
-
--- htmx
-lspconfig.htmx.setup{
-    on_attach = on_attach,
-    capabilities = capabilities,
-    filetypes = {
-        "html", "templ"
-    },
-}
-
--- typescript
-lspconfig.tsserver.setup {
-    on_attach = on_attach,
-    on_init = on_init,
-    capabilities = capabilities,
-}
