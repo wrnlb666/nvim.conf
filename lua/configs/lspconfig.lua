@@ -9,7 +9,6 @@ local servers = {
     "templ",
     "bufls",
     "pyright",
-    "omnisharp",
     "gdscript",
     "zls",
     "htmx",
@@ -50,3 +49,11 @@ lspconfig.clangd.setup {
     },
 }
 
+-- omnisharp
+lspconfig.omnisharp.setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    cmd = {
+        "omnisharp",
+    },
+}
