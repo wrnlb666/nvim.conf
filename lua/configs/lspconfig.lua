@@ -9,6 +9,7 @@ local servers = {
     "templ",
     "bufls",
     "pyright",
+    "nil",
     "gdscript",
     "zls",
     "htmx",
