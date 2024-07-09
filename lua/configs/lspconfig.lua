@@ -36,7 +36,6 @@ lspconfig.clangd.setup {
     cmd = {
         "clangd",
         "--offset-encoding=utf-16",
-        "--malloc-trim",
         "--pch-storage=memory",
         "--clang-tidy",
         -- "--pretty",
