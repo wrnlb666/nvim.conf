@@ -11,6 +11,7 @@ local servers = {
     "pyright",
     "nil_ls",
     "gdscript",
+    "dartls",
     "zls",
     "htmx",
     "texlab",
@@ -36,8 +37,8 @@ lspconfig.clangd.setup {
     cmd = {
         "clangd",
         "--offset-encoding=utf-16",
-        "--pch-storage=memory",
-        "--clang-tidy",
+        -- "--pch-storage=memory",
+        -- "--clang-tidy",
         -- "--pretty",
     },
     filetypes = {
