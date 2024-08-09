@@ -39,19 +39,21 @@ vim.api.nvim_create_autocmd("BufEnter", {
 
 
 -- nvim tree automatic behavior
-vim.api.nvim_exec([[
-  autocmd StdinReadPre * let s:std_in=1
-  autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | execute 'cd '.argv()[0] | execute 'NvimTreeToggle' argv()[0] | endif
-]], false)
+if not vim.g.vscode then
+    vim.api.nvim_exec([[
+      autocmd StdinReadPre * let s:std_in=1
+      autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | execute 'cd '.argv()[0] | execute 'NvimTreeToggle' argv()[0] | endif
+    ]], false)
 
-vim.api.nvim_exec([[
-  autocmd StdinReadPre * let s:std_in=1
-  autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | execute 'NvimTreeToggle' | endif
-]], false)
+    vim.api.nvim_exec([[
+      autocmd StdinReadPre * let s:std_in=1
+      autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | execute 'NvimTreeToggle' | endif
+    ]], false)
 
-vim.api.nvim_exec([[
-  autocmd BufEnter * if (winnr('$') == 1 && &filetype == 'NvimTree') | q | endif
-]], false)
+    vim.api.nvim_exec([[
+      autocmd BufEnter * if (winnr('$') == 1 && &filetype == 'NvimTree') | q | endif
+    ]], false)
+end
 
 
 -- line break
