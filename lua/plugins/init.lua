@@ -103,6 +103,7 @@ return {
                 "c_sharp",
                 "make",
                 "lua",
+                "dart",
                 "nix",
                 "markdown",
                 "latex",
