@@ -13,6 +13,8 @@ local servers = {
     "gdscript",
     "dartls",
     "zls",
+    "dockerls",
+    "docker-compose-language-service",
     "htmx",
     "texlab",
     "sqls",
