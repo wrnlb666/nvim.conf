@@ -14,7 +14,7 @@ local servers = {
     "dartls",
     "zls",
     "dockerls",
-    "docker-compose-language-service",
+    "docker_compose_language_service",
     "htmx",
     "texlab",
     "sqls",
