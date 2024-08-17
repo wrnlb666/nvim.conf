@@ -11,6 +11,7 @@ local servers = {
     "pyright",
     "nil_ls",
     "gdscript",
+    "kotlin_language_server",
     "dartls",
     "zls",
     "dockerls",
