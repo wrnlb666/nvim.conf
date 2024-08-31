@@ -9,7 +9,6 @@ local servers = {
     "templ",
     "bufls",
     "pyright",
-    "nil_ls",
     "gdscript",
     "kotlin_language_server",
     "dartls",
@@ -20,6 +19,7 @@ local servers = {
     "texlab",
     "sqls",
     "tsserver",
+    "tailwindcss",
     "html",
     "cssls",
 }
