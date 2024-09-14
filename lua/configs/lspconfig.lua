@@ -18,7 +18,7 @@ local servers = {
     "htmx",
     "texlab",
     "sqls",
-    "tsserver",
+    "ts_ls",
     "tailwindcss",
     "html",
     "cssls",
