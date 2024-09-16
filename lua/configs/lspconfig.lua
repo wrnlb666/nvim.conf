@@ -9,6 +9,7 @@ local servers = {
     "templ",
     "bufls",
     "pyright",
+    "ruff",
     "gdscript",
     "kotlin_language_server",
     "dartls",
