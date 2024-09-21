@@ -102,7 +102,7 @@ return {
                 "html",
                 "css",
     		},
-            auto_install = true,
+            auto_install = false,
     	},
     },
 }
