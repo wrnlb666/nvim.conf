@@ -38,6 +38,10 @@ vim.api.nvim_create_autocmd("BufEnter", {
 })
 
 
+-- disable Codeium by default
+vim.g.codeium_enabled = false
+
+
 -- nvim tree automatic behavior
 if not vim.g.vscode then
     vim.api.nvim_exec([[
