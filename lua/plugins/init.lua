@@ -95,7 +95,7 @@ return {
                 "jq",
                 "cpp",
                 "zig",
-                "v",
+                "rust",
                 "jsdoc",
                 "javascript",
                 "typescript",

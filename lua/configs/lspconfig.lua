@@ -12,7 +12,7 @@ local servers = {
     "ruff",
     "gdscript",
     "zls",
-    "v_analyzer",
+    "rust_analyzer",
     "dockerls",
     "docker_compose_language_service",
     "htmx",
