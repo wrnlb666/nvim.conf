@@ -57,6 +57,9 @@ lspconfig.rust_analyzer.setup({
     capabilities = capabilities,
     settings = {
         ["rust-analyzer"] = {
+            diagnostics = {
+                enable = false;
+            },
             assist = {
                 importGranularity = "module",
                 importMergeBehavior = "last",
