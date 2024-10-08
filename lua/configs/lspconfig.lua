@@ -10,7 +10,7 @@ local servers = {
     "bufls",
     "pyright",
     "ruff",
-    "gdscript",
+    "omnisharp",
     "zls",
     "rust_analyzer",
     "dockerls",
@@ -49,14 +49,5 @@ lspconfig.clangd.setup {
         "objc",
         "objcpp",
         "cuda",
-    },
-}
-
--- omnisharp
-lspconfig.omnisharp.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    cmd = {
-        "omnisharp",
     },
 }
