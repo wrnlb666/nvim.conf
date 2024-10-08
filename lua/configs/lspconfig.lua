@@ -12,7 +12,6 @@ local servers = {
     "ruff",
     "omnisharp",
     "zls",
-    "rust_analyzer",
     "dockerls",
     "docker_compose_language_service",
     "htmx",
@@ -51,3 +50,39 @@ lspconfig.clangd.setup {
         "cuda",
     },
 }
+
+-- rust_analyzer
+lspconfig.rust_analyzer.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+        ["rust-analyzer"] = {
+            assist = {
+                importGranularity = "module",
+                importMergeBehavior = "last",
+                importPrefix = "by_self",
+            },
+            cargo = {
+                loadOutDirsFromCheck = true,
+            },
+            procMacro = {
+                enable = true,
+            },
+            completion = {
+                autoimport = {
+                    enable = true,
+                },
+                addCallArgumentSnippets = true,
+                postfix = {
+                    enable = true,
+                },
+            },
+            -- Optional: Enable inlay hints for better context
+            inlayHints = {
+                chainingHints = true,
+                parameterHints = true,
+                typeHints = true,
+            },
+        }
+    },
+})
