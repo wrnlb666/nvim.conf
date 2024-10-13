@@ -33,8 +33,8 @@ end
 vim.opt.foldmethod = "expr"
 vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.api.nvim_create_autocmd("BufEnter", {
-  pattern = "*",
-  command = "normal! zR"
+    pattern = "*",
+    command = "normal! zR"
 })
 
 
@@ -42,22 +42,89 @@ vim.api.nvim_create_autocmd("BufEnter", {
 vim.g.codeium_enabled = false
 
 
+-- NvChad menu
+-- keyboard
+vim.keymap.set("n", "<C-t>", function()
+    require("menu").open("default")
+end, {})
+-- mouse
+vim.keymap.set("n", "<RightMouse>", function()
+    vim.cmd.exec '"normal! \\<RightMouse>"'
+
+    local options = vim.bo.ft == "NvimTree" and "nvimtree" or "default"
+    require("menu").open(options, { mouse = true })
+end, {})
+
+
 -- nvim tree automatic behavior
-if not vim.g.vscode then
-    vim.api.nvim_exec([[
-      autocmd StdinReadPre * let s:std_in=1
-      autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') | execute 'cd '.argv()[0] | execute 'NvimTreeToggle' argv()[0] | endif
-    ]], false)
+require("nvim-tree").setup({
+    filters = { dotfiles = false },
+    disable_netrw = true,
+    hijack_cursor = true,
+    sync_root_with_cwd = true,
+    update_focused_file = {
+        enable = true,
+        update_root = false,
+    },
+    view = {
+        width = 30,
+        preserve_window_proportions = true,
+    },
+    renderer = {
+        root_folder_label = false,
+        highlight_git = true,
+        indent_markers = { enable = true },
+        icons = {
+            glyphs = {
+                default = "󰈚",
+                folder = {
+                    default = "",
+                    empty = "",
+                    empty_open = "",
+                    open = "",
+                    symlink = "",
+                },
+                git = { unmerged = "" },
+            },
+        },
+    },
+    actions = {
+        remove_file = {
+            close_window = false,
+        }
+    },
+})
 
-    vim.api.nvim_exec([[
-      autocmd StdinReadPre * let s:std_in=1
-      autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | execute 'NvimTreeToggle' | endif
-    ]], false)
+vim.api.nvim_create_autocmd({ "VimEnter" }, {
+    -- nested = true,
+    callback = function(data)
+        -- buffer is a real file on the disk
+        local real_file = vim.fn.filereadable(data.file) == 1
+        -- buffer is a [No Name]
+        local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
 
-    vim.api.nvim_exec([[
-      autocmd BufEnter * if (winnr('$') == 1 && &filetype == 'NvimTree') | q | endif
-    ]], false)
-end
+        -- only files please
+        if not real_file and not no_name then
+          return
+        end
+
+        -- open nvim-tree
+        if real_file then
+            require("nvim-tree.api").tree.toggle({ focus = false })
+        else
+            require("nvim-tree.api").tree.toggle({ focus = true })
+        end
+    end
+})
+
+vim.api.nvim_create_autocmd("BufEnter", {
+  nested = true,
+  callback = function()
+    if #vim.api.nvim_list_wins() == 1 and vim.bo.filetype == "NvimTree" then
+      vim.cmd("quit")
+    end
+  end
+})
 
 
 -- line break
