@@ -81,35 +81,34 @@ require("nvim-tree").setup({
     },
 })
 
-vim.api.nvim_create_autocmd({ "VimEnter" }, {
-    -- nested = true,
+vim.api.nvim_create_autocmd({"VimEnter"}, {
+    nested = true,
     callback = function(data)
         -- buffer is a real file on the disk
         local real_file = vim.fn.filereadable(data.file) == 1
         -- buffer is a [No Name]
         local no_name = data.file == "" and vim.bo[data.buf].buftype == ""
 
-        -- only files please
         if not real_file and not no_name then
-          return
-        end
-
-        -- open nvim-tree
-        if real_file then
+            -- only files please
+            require("nvim-tree.api").tree.open({ focus = true })
+        elseif real_file then
+            -- real file
             require("nvim-tree.api").tree.toggle({ focus = false })
         else
             require("nvim-tree.api").tree.toggle({ focus = true })
         end
-    end
-})
 
-vim.api.nvim_create_autocmd("BufEnter", {
-  nested = true,
-  callback = function()
-    if #vim.api.nvim_list_wins() == 1 and vim.bo.filetype == "NvimTree" then
-      vim.cmd("quit")
+        -- setup exit autocmd
+        vim.api.nvim_create_autocmd("BufEnter", {
+          nested = true,
+          callback = function()
+            if #vim.api.nvim_list_wins() == 1 and vim.bo.filetype == "NvimTree" then
+              vim.cmd("quit")
+            end
+          end
+        })
     end
-  end
 })
 
 
