@@ -14,15 +14,16 @@ map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
 -- Swapping 'za' with 'zA'
 map('n', 'za', 'zA', {noremap = true})
--- vim.api.nvim_set_keymap('n', 'zA', 'za', {noremap = true})
 
--- -- Swapping 'zr' with 'zR'
--- vim.api.nvim_set_keymap('n', 'zr', 'zR', {noremap = true})
--- vim.api.nvim_set_keymap('n', 'zR', 'zr', {noremap = true})
---
--- -- Swapping 'zm' with 'zM'
--- vim.api.nvim_set_keymap('n', 'zm', 'zM', {noremap = true})
--- vim.api.nvim_set_keymap('n', 'zM', 'zm', {noremap = true})
+
+-- NvChad menu
+-- mouse
+vim.keymap.set("n", "<RightMouse>", function()
+    vim.cmd.exec '"normal! \\<RightMouse>"'
+
+    local options = vim.bo.ft == "NvimTree" and "nvimtree" or "default"
+    require("menu").open(options, { mouse = true })
+end, {})
 
 
 -- git branches

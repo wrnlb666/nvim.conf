@@ -42,20 +42,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
 vim.g.codeium_enabled = false
 
 
--- NvChad menu
--- keyboard
-vim.keymap.set("n", "<C-t>", function()
-    require("menu").open("default")
-end, {})
--- mouse
-vim.keymap.set("n", "<RightMouse>", function()
-    vim.cmd.exec '"normal! \\<RightMouse>"'
-
-    local options = vim.bo.ft == "NvimTree" and "nvimtree" or "default"
-    require("menu").open(options, { mouse = true })
-end, {})
-
-
 -- nvim tree automatic behavior
 require("nvim-tree").setup({
     filters = { dotfiles = false },
