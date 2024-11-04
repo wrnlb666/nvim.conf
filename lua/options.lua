@@ -14,19 +14,23 @@ local sysname = vim.loop.os_uname().sysname
 
 if sysname == "Linux" then
     vim.opt.clipboard = "unnamedplus"
-else
+elseif sysname == "Windows_NT" then
     vim.opt.clipboard = "unnamed"
+elseif sysname == "Darwin" then
+    vim.opt.clipboard = "unnamedplus"
 end
 
 -- default shell
 -- vim.opt.shell = 'zsh'
 if sysname == "Linux" then
-    vim.opt.shell = 'zsh'
-else
+    vim.opt.shell = "zsh"
+elseif sysname == "Windows_NT" then
     vim.o.shell = "powershell"
     vim.o.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command"
     vim.o.shellquote = ""
     vim.o.shellxquote = ""
+elseif sysname == "Darwin" then
+    vim.opt.shell = "zsh"
 end
 
 -- treesitter fold
