@@ -7,7 +7,7 @@ local lspconfig = require "lspconfig"
 local servers = {
     "gopls",
     "templ",
-    "bufls",
+    "buf_ls",
     "pyright",
     "ruff",
     "omnisharp",
