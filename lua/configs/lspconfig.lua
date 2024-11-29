@@ -6,6 +6,7 @@ local capabilities = require("nvchad.configs.lspconfig").capabilities
 local lspconfig = require "lspconfig"
 local servers = {
     "gopls",
+    "golangci_lint_ls",
     "templ",
     "buf_ls",
     "pyright",
