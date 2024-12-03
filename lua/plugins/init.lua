@@ -92,6 +92,8 @@ return {
                 "markdown",
                 "sql",
                 "gitignore",
+                "json",
+                "yaml",
                 "jq",
                 "cpp",
                 "zig",
@@ -102,7 +104,7 @@ return {
                 "html",
                 "css",
     		},
-            auto_install = false,
+            auto_install = true,
     	},
     },
 }
