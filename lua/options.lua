@@ -120,10 +120,18 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
 -- line break
 vim.wo.linebreak = true
 
--- add `.templ` file extension
+-- filetype
 vim.filetype.add({
 	extension = {
 		templ = "templ",
 		proto = "proto",
 	},
 })
+
+vim.api.nvim_create_autocmd("BufRead", {
+    pattern = { "docker-compose.yml", "docker-compose.yaml" },
+    callback = function()
+        vim.bo.filetype = "yaml.docker-compose"
+    end,
+})
+
