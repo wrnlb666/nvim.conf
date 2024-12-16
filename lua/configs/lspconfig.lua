@@ -14,6 +14,7 @@ local servers = {
     "autotools_ls",
     "omnisharp",
     "zls",
+    "ols",
     "dockerls",
     "docker_compose_language_service",
     "htmx",

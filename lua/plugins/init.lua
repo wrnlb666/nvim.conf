@@ -97,6 +97,7 @@ return {
                 "jq",
                 "cpp",
                 "zig",
+                "odin",
                 "rust",
                 "jsdoc",
                 "javascript",
