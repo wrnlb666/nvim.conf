@@ -11,7 +11,6 @@ local servers = {
     "buf_ls",
     "pyright",
     "ruff",
-    "autotools_ls",
     "omnisharp",
     "zls",
     "ols",
