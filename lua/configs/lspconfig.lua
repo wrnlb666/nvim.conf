@@ -40,9 +40,10 @@ lspconfig.clangd.setup {
     cmd = {
         "clangd",
         "--offset-encoding=utf-16",
-        -- "--pch-storage=memory",
-        -- "--clang-tidy",
-        -- "--pretty",
+        "--function-arg-placeholders=0",
+        "--clang-tidy",
+        "--malloc-trim",
+        "--completion-style=detailed"
     },
     filetypes = {
         "c",
