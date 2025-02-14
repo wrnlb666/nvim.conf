@@ -102,6 +102,7 @@ return {
                 "jsdoc",
                 "javascript",
                 "typescript",
+                "tsx",
                 "html",
                 "css",
     		},
