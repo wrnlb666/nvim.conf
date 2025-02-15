@@ -16,7 +16,6 @@ local servers = {
     "ols",
     "dockerls",
     "docker_compose_language_service",
-    "htmx",
     "sqls",
     "ts_ls",
     "tailwindcss",
