@@ -17,6 +17,7 @@ local servers = {
 	"docker_compose_language_service",
 	"sqls",
 	"ts_ls",
+	"html",
 	"tailwindcss",
 	"cssls",
 }
@@ -49,27 +50,6 @@ lspconfig.clangd.setup({
 		"objc",
 		"objcpp",
 		"cuda",
-	},
-})
-
--- html
-lspconfig.html.setup({
-	on_attach = on_attach,
-	on_init = on_init,
-	capabilities = capabilities,
-	settings = {
-		html = {
-			format = {
-				indentInnerHtml = true,
-				templating = true,
-				wrapLineLength = 120,
-				wrapAttributes = "auto",
-				indentHandlebars = false,
-				endWithNewline = true,
-				extraLiners = "head, body, /html",
-				indent_size = 4,
-			},
-		},
 	},
 })
 
