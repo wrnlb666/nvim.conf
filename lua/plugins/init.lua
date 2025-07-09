@@ -1,20 +1,17 @@
 return {
 	-- my plugin start
 
-
-	-- For `plugins.lua` users.
+	-- markview
 	{
 		"OXY2DEV/markview.nvim",
 		lazy = false,
-
 		-- For `nvim-treesitter` users.
-		priority = 49,
-
+		-- priority = 49,
 		-- For blink.cmp's completion
 		-- source
-		-- dependencies = {
-		--     "saghen/blink.cmp"
-		-- },
+		dependencies = {
+		    "saghen/blink.cmp"
+		},
 	},
 
 	-- codeium
@@ -98,9 +95,9 @@ return {
 				"lua",
 				"dockerfile",
 				"markdown",
-                "markdown_inline",
-                "latex",
-                "typst",
+				"markdown_inline",
+				"latex",
+				"typst",
 				"sql",
 				"gitignore",
 				"json",
