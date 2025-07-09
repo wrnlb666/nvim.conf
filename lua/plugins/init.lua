@@ -6,11 +6,11 @@ return {
 		"OXY2DEV/markview.nvim",
 		lazy = false,
 		-- For `nvim-treesitter` users.
-		-- priority = 49,
+		priority = 49,
 		-- For blink.cmp's completion
 		-- source
 		dependencies = {
-		    "saghen/blink.cmp"
+			"saghen/blink.cmp",
 		},
 	},
 
@@ -82,6 +82,11 @@ return {
 
 	{
 		"nvim-treesitter/nvim-treesitter",
+		-- for markview to work properly
+		lazy = false,
+		dependencies = {
+			"OXY2DEV/markview.nvim",
+		},
 		opts = {
 			ensure_installed = {
 				"vim",
