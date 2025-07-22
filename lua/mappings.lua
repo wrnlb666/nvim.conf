@@ -26,6 +26,10 @@ vim.keymap.set("n", "<RightMouse>", function()
 end, {})
 
 
+-- markview
+vim.keymap.set("n", "<leader>m", ":Markview toggle<CR>", { desc = "Markview: toggle preview" })
+
+
 -- git branches
 map('n', '<leader>co', '<cmd>Telescope git_branches<CR>', {noremap = true, silent = true})
 
