@@ -10,6 +10,7 @@ local servers = {
 	"ruff",
 	"bashls",
 	"omnisharp",
+	"rust_analyzer",
 	"zls",
 	"ols",
 	"dockerls",
@@ -49,45 +50,5 @@ lspconfig.clangd.setup({
 		"objc",
 		"objcpp",
 		"cuda",
-	},
-})
-
--- rust_analyzer
-lspconfig.rust_analyzer.setup({
-	on_attach = on_attach,
-	on_init = on_init,
-	capabilities = capabilities,
-	settings = {
-		["rust-analyzer"] = {
-			diagnostics = {
-				enable = false,
-			},
-			assist = {
-				importGranularity = "module",
-				importMergeBehavior = "last",
-				importPrefix = "by_self",
-			},
-			cargo = {
-				loadOutDirsFromCheck = true,
-			},
-			procMacro = {
-				enable = true,
-			},
-			completion = {
-				autoimport = {
-					enable = true,
-				},
-				addCallArgumentSnippets = true,
-				postfix = {
-					enable = true,
-				},
-			},
-			-- Optional: Enable inlay hints for better context
-			inlayHints = {
-				chainingHints = true,
-				parameterHints = true,
-				typeHints = true,
-			},
-		},
 	},
 })
