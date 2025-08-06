@@ -44,9 +44,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
 	command = "normal! zR",
 })
 
--- disable Codeium by default
-vim.g.codeium_enabled = false
-
 -- line break
 vim.wo.linebreak = true
 

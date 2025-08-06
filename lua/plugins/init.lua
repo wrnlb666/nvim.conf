@@ -101,21 +101,6 @@ return {
 		end,
 	},
 
-	-- codeium
-	{
-		"Exafunction/codeium.vim",
-		event = "BufEnter",
-		config = function()
-			-- change default accept key to `ctrl+z`
-			vim.keymap.set("i", "<C-z>", function()
-				return vim.fn["codeium#Accept"]()
-			end, {
-				expr = true,
-				silent = true,
-			})
-		end,
-	},
-
 	-- wakatime
 	{
 		"wakatime/vim-wakatime",
