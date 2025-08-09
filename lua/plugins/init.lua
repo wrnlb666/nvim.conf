@@ -7,6 +7,16 @@ return {
 		lazy = false,
 		-- For `nvim-treesitter` users.
 		priority = 49,
+		init = function()
+			-- after startup, make sure Markview won't attach itself automatically
+			vim.api.nvim_create_autocmd("VimEnter", {
+				once = true,
+				callback = function()
+					pcall(vim.cmd, "Markview Stop") -- don't attach to new buffers
+					pcall(vim.cmd, "Markview Disable") -- clear any previews if it attached early
+				end,
+			})
+		end,
 		-- For blink.cmp's completion
 		-- source
 		dependencies = {

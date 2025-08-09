@@ -18,7 +18,7 @@ map('n', 'za', 'zA', {noremap = true})
 
 -- NvChad menu
 -- mouse
-vim.keymap.set("n", "<RightMouse>", function()
+map("n", "<RightMouse>", function()
     vim.cmd.exec '"normal! \\<RightMouse>"'
 
     local options = vim.bo.ft == "NvimTree" and "nvimtree" or "default"
@@ -27,7 +27,19 @@ end, {})
 
 
 -- markview
-vim.keymap.set("n", "<leader>m", ":Markview toggle<CR>", { desc = "Markview: toggle preview" })
+map("n", "<leader>m", ":Markview splitToggle<CR>", { desc = "Markview: toggle split preview" })
+
+-- MdMath
+vim.b.mdmath = false
+map("n", "<leader>M", function()
+    on = vim.b.mdmath
+    if on then
+        pcall(vim.cmd, "MdMath disable")
+    else
+        pcall(vim.cmd, "MdMath enable")
+    end
+    vim.b.mdmath = not on
+end, { desc = "MdMath: Toggle MdMath" })
 
 
 -- git branches
