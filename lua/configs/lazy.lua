@@ -1,102 +1,47 @@
-if not vim.g.vscode then
-    return {
-      defaults = { lazy = true },
-      install = { colorscheme = { "nvchad" } },
+return {
+	defaults = { lazy = true },
+	install = { colorscheme = { "nvchad" } },
 
-      ui = {
-        icons = {
-          ft = "",
-          lazy = "󰂠 ",
-          loaded = "",
-          not_loaded = "",
-        },
-      },
+	ui = {
+		icons = {
+			ft = "",
+			lazy = "󰂠 ",
+			loaded = "",
+			not_loaded = "",
+		},
+	},
 
-      performance = {
-        rtp = {
-          disabled_plugins = {
-            "2html_plugin",
-            "tohtml",
-            "getscript",
-            "getscriptPlugin",
-            "gzip",
-            "logipat",
-            "netrw",
-            "netrwPlugin",
-            "netrwSettings",
-            "netrwFileHandlers",
-            "matchit",
-            "tar",
-            "tarPlugin",
-            "rrhelper",
-            "spellfile_plugin",
-            "vimball",
-            "vimballPlugin",
-            "zip",
-            "zipPlugin",
-            "tutor",
-            "rplugin",
-            "syntax",
-            "synmenu",
-            "optwin",
-            "compiler",
-            "bugreport",
-            "ftplugin",
-          },
-        },
-      },
-    }
-else
-    return {
-      defaults = { lazy = true },
-      install = { colorscheme = { "nvchad" } },
-
-      ui = {
-        icons = {
-          ft = "",
-          lazy = "󰂠 ",
-          loaded = "",
-          not_loaded = "",
-        },
-      },
-
-      performance = {
-        rtp = {
-          disabled_plugins = {
-            "indent-blankline.nvim",
-            "nvim-tree.lua",
-            "nvim-tree-sitter",
-            "nvim-lspconfig",
-            "gzip",
-            "2html_plugin",
-            "tohtml",
-            "getscript",
-            "getscriptPlugin",
-            "gzip",
-            "logipat",
-            "netrw",
-            "netrwPlugin",
-            "netrwSettings",
-            "netrwFileHandlers",
-            "matchit",
-            "tar",
-            "tarPlugin",
-            "rrhelper",
-            "spellfile_plugin",
-            "vimball",
-            "vimballPlugin",
-            "zip",
-            "zipPlugin",
-            "tutor",
-            "rplugin",
-            "syntax",
-            "synmenu",
-            "optwin",
-            "compiler",
-            "bugreport",
-            "ftplugin",
-          },
-        },
-      },
-    }
-end
+	performance = {
+		rtp = {
+			disabled_plugins = {
+				"2html_plugin",
+				"tohtml",
+				"getscript",
+				"getscriptPlugin",
+				"gzip",
+				"logipat",
+				"netrw",
+				"netrwPlugin",
+				"netrwSettings",
+				"netrwFileHandlers",
+				"matchit",
+				"tar",
+				"tarPlugin",
+				"rrhelper",
+				"spellfile_plugin",
+				"vimball",
+				"vimballPlugin",
+				"zip",
+				"zipPlugin",
+				"tutor",
+				"rplugin",
+				"syntax",
+				"synmenu",
+				"optwin",
+				"compiler",
+				"bugreport",
+				"ftplugin",
+			},
+		},
+	},
+}
