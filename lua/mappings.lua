@@ -27,7 +27,10 @@ end, {})
 
 
 -- markview
-map("n", "<leader>m", ":Markview splitToggle<CR>", { desc = "Markview: toggle split preview" })
+-- map("n", "<leader>m", ":Markview splitToggle<CR>", { desc = "Markview: toggle split preview" })
+
+-- markview
+map("n", "<leader>m", require('render-markdown').buf_toggle, { desc = "render-markdown: toggle Buf view" })
 
 -- MdMath
 vim.b.mdmath = false

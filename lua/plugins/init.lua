@@ -1,28 +1,53 @@
 return {
 	-- my plugin start
 
-	-- markview
+	-- render-markdown
 	{
-		"OXY2DEV/markview.nvim",
-		lazy = false,
-		-- For `nvim-treesitter` users.
-		priority = 49,
+		"MeanderingProgrammer/render-markdown.nvim",
+		-- dependencies = { "nvim-treesitter/nvim-treesitter", "echasnovski/mini.nvim" }, -- if you use the mini.nvim suite
+		-- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+		dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
+		---@module 'render-markdown'
+		---@type render.md.UserConfig
+		opts = {},
 		init = function()
-			-- after startup, make sure Markview won't attach itself automatically
-			vim.api.nvim_create_autocmd("VimEnter", {
-				once = true,
-				callback = function()
-					pcall(vim.cmd, "Markview Stop") -- don't attach to new buffers
-					pcall(vim.cmd, "Markview Disable") -- clear any previews if it attached early
-				end,
+			require("render-markdown").setup({
+				enabled = false,
+				completions = { lsp = { enabled = true } },
+			})
+
+			-- cmp
+			local cmp = require("cmp")
+			cmp.setup({
+				sources = cmp.config.sources({
+					{ name = "render-markdown" },
+				}),
 			})
 		end,
-		-- For blink.cmp's completion
-		-- source
-		dependencies = {
-			"saghen/blink.cmp",
-		},
 	},
+
+	-- markview
+	-- {
+	-- 	"OXY2DEV/markview.nvim",
+	-- 	lazy = false,
+	-- 	-- For `nvim-treesitter` users.
+	-- 	priority = 49,
+	-- 	init = function()
+	-- 		-- after startup, make sure Markview won't attach itself automatically
+	-- 		vim.api.nvim_create_autocmd("VimEnter", {
+	-- 			once = true,
+	-- 			callback = function()
+	-- 				pcall(vim.cmd, "Markview Stop") -- don't attach to new buffers
+	-- 				pcall(vim.cmd, "Markview Disable") -- clear any previews if it attached early
+	-- 			end,
+	-- 		})
+	-- 	end,
+	-- 	-- For blink.cmp's completion
+	-- 	-- source
+	-- 	dependencies = {
+	-- 		"saghen/blink.cmp",
+	-- 	},
+	-- },
 
 	-- mdmath
 	{
@@ -180,9 +205,9 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		-- for markview to work properly
 		lazy = false,
-		dependencies = {
-			"OXY2DEV/markview.nvim",
-		},
+		-- dependencies = {
+		-- 	"OXY2DEV/markview.nvim",
+		-- },
 		opts = {
 			ensure_installed = {
 				"vim",
