@@ -13,6 +13,7 @@ return {
 		init = function()
 			require("render-markdown").setup({
 				enabled = false,
+				latex = { enabled = false},
 				completions = { lsp = { enabled = true } },
 			})
 
@@ -42,11 +43,6 @@ return {
 	-- 			end,
 	-- 		})
 	-- 	end,
-	-- 	-- For blink.cmp's completion
-	-- 	-- source
-	-- 	dependencies = {
-	-- 		"saghen/blink.cmp",
-	-- 	},
 	-- },
 
 	-- mdmath
