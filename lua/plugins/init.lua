@@ -1,6 +1,12 @@
 return {
 	-- my plugin start
 
+	-- vivify
+	{
+        "jannis-baum/vivify.vim",
+        lazy = false,
+    },
+
 	-- render-markdown
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
@@ -13,7 +19,7 @@ return {
 		init = function()
 			require("render-markdown").setup({
 				enabled = false,
-				latex = { enabled = false},
+				latex = { enabled = false },
 				completions = { lsp = { enabled = true } },
 			})
 
