@@ -3,9 +3,31 @@ return {
 
 	-- vivify
 	{
-        "jannis-baum/vivify.vim",
+		"jannis-baum/vivify.vim",
+		lazy = false,
+	},
+
+	-- jupyviv
+	{
+		"jannis-baum/jupyviv.nvim",
+		dependencies = { "jannis-baum/vivify.vim" },
         lazy = false,
-    },
+
+		config = function()
+			require("jupyviv").setup()
+
+			local map = vim.keymap.set
+			map("n", "<leader>js", ":JupyvivStart<CR>", { desc = "Jupyviv: Start" })
+			map("n", "<leader>jrh", ":JupyvivRunHere<CR>", { desc = "Jupyviv: Run code cell the cursor is current in" })
+			map("n", "<leader>jrs", ":JupyvivRunSelection<CR>", { desc = "Jupyviv: Run selected code cell" })
+			map("n", "<leader>jra", ":JupyvivRunAll<CR>", { desc = "Jupyviv: Run all code" })
+			map("n", "<leader>jik", ":JupyvivInterruptKernel<CR>", { desc = "Jupyviv: Keyboard interrupt the kernel" })
+			map("n", "<leader>jrk", ":JupyvivRestartKernel<CR>", { desc = "Jupyviv: Restart Kernel" })
+			map("n", "<leader>jk", ":JupyvivKill<CR>", { desc = "Jupyviv: Kill" })
+			map("n", "<leader>jce", ":JupyvivClearExecution<CR>", { desc = "Jupyviv: Clear outputs" })
+			map("n", "<leader>jee", ":JupyvivEnumerateExecution<CR>", { desc = "Jupyviv: Enumerate execution counts" })
+		end,
+	},
 
 	-- render-markdown
 	{
