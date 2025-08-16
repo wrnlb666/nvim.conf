@@ -26,6 +26,12 @@ return {
 			map("n", "<leader>jk", ":JupyvivKill<CR>", { desc = "Jupyviv: Kill" })
 			map("n", "<leader>jce", ":JupyvivClearExecution<CR>", { desc = "Jupyviv: Clear outputs" })
 			map("n", "<leader>jee", ":JupyvivEnumerateExecution<CR>", { desc = "Jupyviv: Enumerate execution counts" })
+            map("n", "<leader>jn", function()
+                local name = vim.fn.input("Enter filename: ")
+                if name ~= "" then
+                    vim.cmd(":JupyvivNew kernel=python " .. name)
+                end
+            end, { desc = "Jupyviv: Create new ipynb" })
 		end,
 	},
 
