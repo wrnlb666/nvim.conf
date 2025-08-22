@@ -50,14 +50,6 @@ return {
 				latex = { enabled = false },
 				completions = { lsp = { enabled = true } },
 			})
-
-			-- cmp
-			local cmp = require("cmp")
-			cmp.setup({
-				sources = cmp.config.sources({
-					{ name = "render-markdown" },
-				}),
-			})
 		end,
 	},
 
