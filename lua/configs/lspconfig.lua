@@ -8,6 +8,7 @@ local servers = {
 	"golangci_lint_ls",
 	"pyright",
 	"ruff",
+    "cmake",
 	"bashls",
 	"omnisharp",
 	"rust_analyzer",
