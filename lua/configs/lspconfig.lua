@@ -16,6 +16,7 @@ local servers = {
 	"cssls",
 	"ts_ls",
 	"eslint",
+    "stylelint_lsp",
 	"tailwindcss",
 	-- "omnisharp",
 	-- "rust_analyzer",
