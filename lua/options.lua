@@ -37,12 +37,12 @@ elseif sysname == "Darwin" then
 end
 
 -- treesitter fold
-o.foldmethod = "expr"
-o.foldexpr = "nvim_treesitter#foldexpr()"
-vim.api.nvim_create_autocmd("BufEnter", {
-	pattern = "*",
-	command = "normal! zR",
-})
+-- o.foldmethod = "expr"
+-- o.foldexpr = "nvim_treesitter#foldexpr()"
+-- vim.api.nvim_create_autocmd("BufEnter", {
+-- 	pattern = "*",
+-- 	command = "normal! zR",
+-- })
 
 -- line break
 vim.wo.linebreak = true
