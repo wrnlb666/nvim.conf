@@ -26,14 +26,14 @@ end
 -- default shell
 -- o.shell = 'zsh'
 if sysname == "Linux" then
-	o.shell = "zsh"
+	o.shell = os.getenv("SHELL")
 elseif sysname == "Windows_NT" then
 	o.shell = "powershell"
 	o.shellcmdflag = "-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command"
 	o.shellquote = ""
 	o.shellxquote = ""
 elseif sysname == "Darwin" then
-	o.shell = "zsh"
+	o.shell = os.getenv("SHELL")
 end
 
 -- treesitter fold
