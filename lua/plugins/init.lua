@@ -7,34 +7,6 @@ return {
 		lazy = false,
 	},
 
-	-- jupyviv
-	{
-		"jannis-baum/jupyviv.nvim",
-		dependencies = { "jannis-baum/vivify.vim" },
-        lazy = false,
-
-		config = function()
-			require("jupyviv").setup()
-
-			local map = vim.keymap.set
-			map("n", "<leader>js", ":JupyvivStart<CR>", { desc = "Jupyviv: Start" })
-			map("n", "<leader>jrh", ":JupyvivRunHere<CR>", { desc = "Jupyviv: Run code cell the cursor is current in" })
-			map("n", "<leader>jrs", ":JupyvivRunSelection<CR>", { desc = "Jupyviv: Run selected code cell" })
-			map("n", "<leader>jra", ":JupyvivRunAll<CR>", { desc = "Jupyviv: Run all code" })
-			map("n", "<leader>jik", ":JupyvivInterruptKernel<CR>", { desc = "Jupyviv: Keyboard interrupt the kernel" })
-			map("n", "<leader>jrk", ":JupyvivRestartKernel<CR>", { desc = "Jupyviv: Restart Kernel" })
-			map("n", "<leader>jk", ":JupyvivKill<CR>", { desc = "Jupyviv: Kill" })
-			map("n", "<leader>jce", ":JupyvivClearExecution<CR>", { desc = "Jupyviv: Clear outputs" })
-			map("n", "<leader>jee", ":JupyvivEnumerateExecution<CR>", { desc = "Jupyviv: Enumerate execution counts" })
-            map("n", "<leader>jn", function()
-                local name = vim.fn.input("Enter filename: ")
-                if name ~= "" then
-                    vim.cmd(":JupyvivNew kernel=python " .. name)
-                end
-            end, { desc = "Jupyviv: Create new ipynb" })
-		end,
-	},
-
 	-- render-markdown
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
@@ -52,24 +24,6 @@ return {
 			})
 		end,
 	},
-
-	-- markview
-	-- {
-	-- 	"OXY2DEV/markview.nvim",
-	-- 	lazy = false,
-	-- 	-- For `nvim-treesitter` users.
-	-- 	priority = 49,
-	-- 	init = function()
-	-- 		-- after startup, make sure Markview won't attach itself automatically
-	-- 		vim.api.nvim_create_autocmd("VimEnter", {
-	-- 			once = true,
-	-- 			callback = function()
-	-- 				pcall(vim.cmd, "Markview Stop") -- don't attach to new buffers
-	-- 				pcall(vim.cmd, "Markview Disable") -- clear any previews if it attached early
-	-- 			end,
-	-- 		})
-	-- 	end,
-	-- },
 
 	-- mdmath
 	{
