@@ -192,7 +192,6 @@ return {
 				"python",
 				"go",
 				"printf",
-                "diff",
 				"make",
 				"lua",
 				"dockerfile",
