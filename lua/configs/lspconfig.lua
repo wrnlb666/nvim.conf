@@ -2,8 +2,8 @@ local on_attach = require("nvchad.configs.lspconfig").on_attach
 local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
-local lspconfig = require("lspconfig")
 local servers = {
+    "clangd",
 	"gopls",
 	"golangci_lint_ls",
 	"pyright",
@@ -27,20 +27,11 @@ local servers = {
 	-- "docker_compose_language_service",
 }
 
--- lsps with default config
-for _, lsp in ipairs(servers) do
-	lspconfig[lsp].setup({
-		on_attach = on_attach,
-		on_init = on_init,
-		capabilities = capabilities,
-	})
-end
+
+-- customize configs
 
 -- clangd
-lspconfig.clangd.setup({
-	on_attach = on_attach,
-	on_init = on_init,
-	capabilities = capabilities,
+vim.lsp.config('clangd', {
 	cmd = {
 		"clangd",
 		"--offset-encoding=utf-16",
@@ -57,3 +48,7 @@ lspconfig.clangd.setup({
 		"cuda",
 	},
 })
+
+
+-- lsps with default config
+vim.lsp.enable(servers)
