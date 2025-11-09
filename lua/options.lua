@@ -63,14 +63,13 @@ vim.api.nvim_create_autocmd("BufRead", {
 	end,
 })
 
--- in html and css, tab should indent 2 spaces only
-vim.api.nvim_create_autocmd("BufRead", {
+-- within some filetypes, tab should indent 2 spaces only
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "html", "css", "javascript", "javascriptreact", "typescript", "typescriptreact" },
 	callback = function()
-		local ft = vim.bo.filetype
-		if ft == "html" or ft == "css" then
-			vim.bo.tabstop = 2
-			vim.bo.shiftwidth = 2
-			vim.bo.softtabstop = 2
-		end
+		vim.opt_local.shiftwidth = 2
+		vim.opt_local.tabstop = 2
+		vim.opt_local.softtabstop = 2
+		vim.opt_local.expandtab = true
 	end,
 })
