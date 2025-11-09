@@ -3,7 +3,7 @@ local on_init = require("nvchad.configs.lspconfig").on_init
 local capabilities = require("nvchad.configs.lspconfig").capabilities
 
 local servers = {
-    "clangd",
+	"clangd",
 	"gopls",
 	"golangci_lint_ls",
 	"pyright",
@@ -16,8 +16,8 @@ local servers = {
 	"cssls",
 	"ts_ls",
 	"eslint",
-    "jsonls",
-    "stylelint_lsp",
+	"jsonls",
+	"stylelint_lsp",
 	"tailwindcss",
 	-- "omnisharp",
 	-- "rust_analyzer",
@@ -27,11 +27,10 @@ local servers = {
 	-- "docker_compose_language_service",
 }
 
-
 -- customize configs
 
 -- clangd
-vim.lsp.config('clangd', {
+vim.lsp.config("clangd", {
 	cmd = {
 		"clangd",
 		"--offset-encoding=utf-16",
@@ -48,7 +47,6 @@ vim.lsp.config('clangd', {
 		"cuda",
 	},
 })
-
 
 -- lsps with default config
 vim.lsp.enable(servers)
