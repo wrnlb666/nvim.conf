@@ -47,6 +47,21 @@ end
 -- line break
 vim.wo.linebreak = true
 
+-- gf to open file in correct location
+vim.api.nvim_create_autocmd("TermOpen", {
+  callback = function(args)
+    local opts = { buffer = args.buf, silent = true, noremap = true }
+    vim.keymap.set("n", "gf", function()
+      local file = vim.fn.expand("<cfile>")
+      if file == "" then
+        return
+      end
+      vim.cmd("wincmd p")
+      vim.cmd("edit " .. vim.fn.fnameescape(file))
+    end, opts)
+  end,
+})
+
 -- filetype
 vim.filetype.add({
 	extension = {
