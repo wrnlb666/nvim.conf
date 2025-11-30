@@ -1,12 +1,6 @@
 return {
 	-- my plugin start
 
-	-- vivify
-	{
-		"jannis-baum/vivify.vim",
-		lazy = false,
-	},
-
 	-- render-markdown
 	{
 		"MeanderingProgrammer/render-markdown.nvim",
