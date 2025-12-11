@@ -19,10 +19,7 @@ local servers = {
 	"jsonls",
 	"stylelint_lsp",
 	"tailwindcss",
-	-- "omnisharp",
-	-- "rust_analyzer",
-	-- "zls",
-	-- "ols",
+	"rust_analyzer",
 	-- "dockerls",
 	-- "docker_compose_language_service",
 }
