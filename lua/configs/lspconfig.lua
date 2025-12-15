@@ -16,6 +16,7 @@ local servers = {
 	"cssls",
 	"ts_ls",
 	"eslint",
+	"dartls",
 	"jsonls",
 	"stylelint_lsp",
 	"tailwindcss",
