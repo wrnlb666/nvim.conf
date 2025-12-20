@@ -9,18 +9,24 @@ map("i", "jk", "<ESC>")
 map("i", "jj", "<cmd>w<cr><ESC>")
 
 -- save
-map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+map({ "i", "n", "v" }, "<C-s>", "<cmd> w <cr>")
 
 -- Swapping 'za' with 'zA'
 -- map('n', 'za', 'zA', {noremap = true})
 
 -- NvChad menu
 -- mouse
-map("n", "<RightMouse>", function()
+map({ "n" }, "<RightMouse>", function()
 	vim.cmd.exec('"normal! \\<RightMouse>"')
 
 	local options = vim.bo.ft == "NvimTree" and "nvimtree" or "default"
 	require("menu").open(options, { mouse = true })
+end, {})
+
+-- minty Huefy color picker
+map({"n"}, "<leader>cp", function()
+    local huefy = require("minty.huefy")
+    huefy.open()
 end, {})
 
 -- markview
