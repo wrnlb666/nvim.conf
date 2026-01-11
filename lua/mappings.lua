@@ -17,14 +17,14 @@ map({ "i", "n", "v" }, "<C-s>", "<cmd> w <cr>")
 -- NvChad menu
 -- mouse
 map({ "n" }, "<RightMouse>", function()
-	vim.cmd.exec('"normal! \\<RightMouse>"')
+    vim.cmd.exec('"normal! \\<RightMouse>"')
 
-	local options = vim.bo.ft == "NvimTree" and "nvimtree" or "default"
-	require("menu").open(options, { mouse = true })
+    local options = vim.bo.ft == "NvimTree" and "nvimtree" or "default"
+    require("menu").open(options, { mouse = true })
 end, {})
 
 -- minty Huefy color picker
-map({"n"}, "<leader>cp", function()
+map({ "n" }, "<leader>cp", function()
     local huefy = require("minty.huefy")
     huefy.open()
 end, {})
@@ -38,17 +38,17 @@ map("n", "<leader>m", require("render-markdown").buf_toggle, { desc = "render-ma
 -- MdMath
 vim.b.mdmath = false
 map("n", "<leader>M", function()
-	local on = vim.b.mdmath
-	if on then
-		pcall(function()
-			vim.cmd("MdMath disable")
-		end)
-	else
-		pcall(function()
-			vim.cmd("MdMath enable")
-		end)
-	end
-	vim.b.mdmath = not on
+    local on = vim.b.mdmath
+    if on then
+        pcall(function()
+            vim.cmd("MdMath disable")
+        end)
+    else
+        pcall(function()
+            vim.cmd("MdMath enable")
+        end)
+    end
+    vim.b.mdmath = not on
 end, { desc = "MdMath: Toggle MdMath" })
 
 -- git branches
