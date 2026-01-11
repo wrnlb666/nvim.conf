@@ -83,11 +83,12 @@ vim.api.nvim_create_autocmd("FileType", {
 	pattern = {
 		"html",
 		"css",
-		"javascript",
-		"javascriptreact",
-		"typescript",
-		"typescriptreact",
+        "json",
 		"dart",
+		"javascript",
+		"typescript",
+		"javascriptreact",
+		"typescriptreact",
 	},
 	callback = function()
 		vim.opt_local.shiftwidth = 2
