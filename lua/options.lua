@@ -83,8 +83,9 @@ vim.api.nvim_create_autocmd("FileType", {
     pattern = {
         "html",
         "css",
-        "json",
         "dart",
+        "json",
+        "jsonc",
         "javascript",
         "typescript",
         "javascriptreact",
