@@ -1,5 +1,3 @@
-require("nvchad.options")
-
 -- nvim tree automatic behavior
 require("nvim-tree").setup({
     filters = { dotfiles = false },
