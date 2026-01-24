@@ -1,5 +1,6 @@
 require("nvchad.options")
 require("opt-nvim-tree")
+require("opt-gitsigns")
 
 local o = vim.o
 -- o.cursorlineopt ='both' -- to enable cursorline!
