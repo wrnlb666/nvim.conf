@@ -68,7 +68,7 @@ require("gitsigns").setup({
 		end)
 
 		-- action
-		map("n", "<leader>gp", gitsigns.preview_hunk_inline, { desc = "gitsigns preview hunk inline" })
+		map("n", "<leader>gp", gitsigns.preview_hunk, { desc = "gitsigns preview hunk" })
 		map("n", "<leader>gw", gitsigns.toggle_word_diff, { desc = "gitsigns toggle word diff" })
 		map("n", "<leader>gd", gitsigns.diffthis, { desc = "gitsigns diffthis" })
 	end,
