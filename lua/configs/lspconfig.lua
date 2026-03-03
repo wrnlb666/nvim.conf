@@ -18,12 +18,12 @@ local servers = {
     "ts_ls",
     "eslint",
     "dartls",
+    "vala_ls",
     "jsonls",
     "stylelint_lsp",
     "tailwindcss",
     "rust_analyzer",
     "jdtls",
-    -- "vala_ls",
     -- "dockerls",
     -- "docker_compose_language_service",
 }
