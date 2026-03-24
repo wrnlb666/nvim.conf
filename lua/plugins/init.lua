@@ -19,10 +19,10 @@ return {
 		end,
 	},
 
-	-- noice
+	-- noice (better UI)
 	{
 		"folke/noice.nvim",
-		event = "VeryLazy",
+		lazy = false,
 		opts = {
 			lsp = {
 				override = {
@@ -43,6 +43,20 @@ return {
 			"MunifTanjim/nui.nvim",
 			"rcarriga/nvim-notify",
 		},
+	},
+
+	-- scrollbar
+	{
+		"dstein64/nvim-scrollview",
+		lazy = false,
+		opts = {},
+		init = function()
+			require("scrollview").setup({
+				exclude_filetypes = { "NvimTree" },
+				currently_only = true,
+				diagnostics_severities = {},
+			})
+		end,
 	},
 
 	-- mdmath
