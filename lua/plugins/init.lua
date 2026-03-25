@@ -22,7 +22,7 @@ return {
 	-- noice (better UI)
 	{
 		"folke/noice.nvim",
-		lazy = false,
+		event = "VeryLazy",
 		opts = {
 			lsp = {
 				override = {
@@ -32,9 +32,9 @@ return {
 				},
 			},
 			presets = {
-				bottom_search = true, -- use a classic bottom cmdline for search
+				bottom_search = false, -- use a classic bottom cmdline for search
 				command_palette = false, -- position the cmdline and popupmenu together
-				long_message_to_split = true, -- long messages will be sent to a split
+				long_message_to_split = false, -- long messages will be sent to a split
 				inc_rename = false, -- enables an input dialog for inc-rename.nvim
 				lsp_doc_border = true, -- add a border to hover docs and signature help
 			},
@@ -43,6 +43,27 @@ return {
 			"MunifTanjim/nui.nvim",
 			"rcarriga/nvim-notify",
 		},
+	},
+
+	-- snacks
+	{
+		"folke/snacks.nvim",
+		priority = 1000,
+		lazy = false,
+		---@type snacks.Config
+		opts = {
+			bigfile = { enabled = true },
+			input = { enabled = true },
+			lazygit = { enabled = true },
+			notifier = { enabled = true },
+			quickfile = { enabled = true },
+			scroll = { enabled = true },
+		},
+		init = function()
+			vim.keymap.set("n", "<leader>lg", function()
+				require("snacks").lazygit()
+			end, { desc = "LazyGit open lazygit" })
+		end,
 	},
 
 	-- scrollbar
@@ -158,27 +179,6 @@ return {
 			hl(0, "MultiCursorDisabledVisual", { link = "Visual" })
 			hl(0, "MultiCursorDisabledSign", { link = "SignColumn" })
 		end,
-	},
-
-	-- lazygit
-	{
-		"kdheepak/lazygit.nvim",
-		cmd = {
-			"LazyGit",
-			"LazyGitConfig",
-			"LazyGitCurrentFile",
-			"LazyGitFilter",
-			"LazyGitFilterCurrentFile",
-		},
-		-- optional for floating window border decoration
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-		},
-		-- setting the keybinding for LazyGit with 'keys' is recommended in
-		-- order to load the plugin when the command is run for the first time
-		keys = {
-			{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit open lazygit" },
-		},
 	},
 
 	-- my plugin stop
