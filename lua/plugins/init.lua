@@ -22,7 +22,7 @@ return {
 	-- noice (better UI)
 	{
 		"folke/noice.nvim",
-		event = "VeryLazy",
+		lazy = false,
 		opts = {
 			lsp = {
 				override = {
