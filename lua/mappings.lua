@@ -58,5 +58,5 @@ map("n", "<leader>co", "<cmd>Telescope git_branches<CR>", { noremap = true, sile
 map("v", "D", '"_d', { noremap = true })
 
 -- multi-line j/k
-map("n", "j", "gj")
-map("n", "k", "gk")
+map("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true })
+map("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true })

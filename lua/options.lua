@@ -47,7 +47,9 @@ end
 -- })
 
 -- line break
+vim.wo.wrap = true
 vim.wo.linebreak = true
+vim.opt.breakindent = true
 
 -- gf to open file in correct location
 vim.api.nvim_create_autocmd("TermOpen", {
