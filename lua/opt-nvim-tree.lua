@@ -4,6 +4,25 @@ require("nvim-tree").setup({
 	disable_netrw = true,
 	hijack_cursor = true,
 	sync_root_with_cwd = true,
+
+	on_attach = function(bufnr)
+		local api = require("nvim-tree.api")
+		api.map.on_attach.default(bufnr)
+		-- Swap d and D
+		vim.keymap.set("n", "d", api.fs.trash, {
+			buffer = bufnr,
+			noremap = true,
+			silent = true,
+			desc = "Trash",
+		})
+		vim.keymap.set("n", "D", api.fs.remove, {
+			buffer = bufnr,
+			noremap = true,
+			silent = true,
+			desc = "Delete Permanently",
+		})
+	end,
+
 	update_focused_file = {
 		enable = true,
 	},
@@ -38,12 +57,10 @@ require("nvim-tree").setup({
 
 -- close nvim-tree automatically
 vim.api.nvim_create_autocmd("BufEnter", {
-	group = vim.api.nvim_create_augroup("NvimTreeClose", { clear = true }),
-	pattern = "NvimTree_*",
+	nested = true,
 	callback = function()
-		local layout = vim.api.nvim_call_function("winlayout", {})
-		if layout[1] == "leaf" and vim.bo.filetype == "NvimTree" and layout[3] == nil then
-			vim.cmd("confirm quit")
+		if #vim.api.nvim_list_wins() == 1 and require("nvim-tree.utils").is_nvim_tree_buf() then
+			vim.cmd("quit")
 		end
 	end,
 })
