@@ -17,13 +17,10 @@ local servers = {
     "cssls",
     "ts_ls",
     "eslint",
-    "dartls",
-    "vala_ls",
     "jsonls",
     "stylelint_lsp",
     "tailwindcss",
     "rust_analyzer",
-    "jdtls",
     -- "dockerls",
     -- "docker_compose_language_service",
 }
